@@ -1,51 +1,38 @@
-import React from 'react';
+import React from "react";
 import styled, { keyframes } from "styled-components";
-import { bounceInDown } from 'react-animations';
-import ReactSVG from 'react-svg';
+import { bounceInDown } from "react-animations";
+import ReactSVG from "react-svg";
 
 const Missile = styled.div`
-    width: 30px;
-    fill: #aaa;
-    transform: rotate(40deg);
+	width: 30px;
+	fill: #aaa;
+	transform: rotate(40deg);
 `;
 
 const MissilesContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  width: 90%;
+	flex-grow: 1;
+	position: relative;
+	
 `;
 
 const Bounce2s = styled(Missile)`
-  animation: 3s ${keyframes `${bounceInDown}`} infinite
-  `;
+  	animation: 3s ${keyframes`${bounceInDown}`};
+`;
 const Bounce3s = styled(Missile)`
-  animation: 4s ${keyframes `${bounceInDown}`} infinite
-  `;
+  	animation: 4s ${keyframes`${bounceInDown}`};
+`;
 const Bounce4s = styled(Missile)`
-  animation: 5s ${keyframes `${bounceInDown}`} infinite
-  `;
+  	animation: 5s ${keyframes`${bounceInDown}`};
+`;
 
 const Missiles: React.FC = () => {
-    return (
-        <MissilesContainer>
-            <Bounce2s>
-                <ReactSVG
-                src="missile.svg"
-                />
-            </Bounce2s>
-            <Bounce3s>
-                <ReactSVG
-                src="missile.svg"
-                />
-            </Bounce3s>
-            <Bounce4s>
-                <ReactSVG
-                src="missile.svg"
-                />  
-            </Bounce4s>
-        </MissilesContainer>
-    );
-}
+  return (
+    <MissilesContainer>
+		<Bounce2s style={}>
+			<ReactSVG src="missile.svg" />
+		</Bounce2s>
+    </MissilesContainer>
+  );
+};
 
 export default Missiles;
