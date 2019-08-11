@@ -4,9 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Tasks to be completed
 1. Left and right arrow should start the movement of the player in the respective direction.
-2. If a player is hit by the missile Game should be over.
+2. If a player is hit by the missile, the Game should be over.
 3. If a player reaches the flag escaping the missiles he wins.
 4. Once a player starts moving he can only stop if he reaches the flag or he is hit by a missile.
+5. Once the player wins, celebrate the win :+1: 
 
 `IMPORTANT: You have to edit the existing boilerplate code to create the application.`
 
