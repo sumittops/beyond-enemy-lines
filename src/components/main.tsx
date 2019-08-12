@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Missiles from './missiles';
 import FinishLine from './finish-line';
 import Player from './player';
+import useGame from '../useGame';
 // import Timer from './timer';
 
 const Wrapper = styled.div`
@@ -18,14 +19,12 @@ const PlayGround = styled.div`
 `;
 
 const Main: React.FC = () => {
-    function handleFinish(hasWon) {
-        console.log('Won?', hasWon)
-    }
+    const { direction, distance } = useGame();
     return (
         <Wrapper>
             {/* <Timer /> */}
             <PlayGround>
-                <Player onFinish={handleFinish} />
+                <Player distance={distance} direction={direction} />
                 <Missiles />
                 <FinishLine />
             </PlayGround>
