@@ -1,20 +1,31 @@
-import React, { createRef } from "react";
-import styled, { keyframes } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import ReactSVG from "react-svg";
 import Missile from "./missile";
+import { MissileType } from "../useMissles";
+import { MISSILE_FALL_DURATION } from "../constants";
 
 const MissilesContainer = styled.div`
 	flex-grow: 1;
 	position: relative;	
 `;
+type IProps = {
+	missiles: Array<MissileType>
+}
 
-const Missiles: React.FC = () => {
-	const ref = createRef()
+const Missiles: React.FC<IProps> = ({ missiles }) => {
 	return (
 		<MissilesContainer>
-			<Missile position={200}>
-				<ReactSVG src="missile.svg"/>
-			</Missile>
+			{
+				missiles.map(({ position, started, reached}, idx) => 
+					<Missile key={idx} started={started} position={position} 
+						fallDuration={MISSILE_FALL_DURATION} reached={reached}
+					>
+						<ReactSVG src="missile.svg"/>
+					</Missile>
+		
+				)
+			}
 		</MissilesContainer>
   	);
 };

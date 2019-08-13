@@ -1,39 +1,35 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from "styled-components";
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-// import Button from '@material-ui/core/Button';
-import PlayerContext from '../context/player-info';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    button: {
-      margin: theme.spacing(1),
-    },
-    input: {
-      display: 'none',
-    },
-  }),
-);
+import { Icon } from '@material-ui/core';
 
 const Container = styled.div`
   margin-top: 30px
+  display: flex;
+  justify-content: center;
 `;
 
+const Box = styled.div`
+  margin: 12px;
+  background: #99CC00;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  border-radius: 4px;
+`
 
 const Instructions: React.FC = () => {
-    // const classes = useStyles();
-    // const player = useContext(PlayerContext);
 
     return (
       <Container>
-        {/* <Button variant="contained" color="primary"
-          className={classes.button}
-          onClick={()=>{
-            player["toggleRunning"]();
-          }}
-        >
+        <Box>
+          <Icon>arrow_left</Icon>
+          Move Left
+        </Box>
+        <Box>
           Move Right
-        </Button> */}
+          <Icon>arrow_right</Icon>
+        </Box>
       </Container>
     );
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components";
 import { bounceInDown } from 'react-animations'
 import ReactSVG from "react-svg";
@@ -8,31 +8,22 @@ const Symbol = styled.div`
 	transform: rotate(40deg);
 	position: absolute;
 	bottom: 10px;
-	animation: 1s ${keyframes`${bounceInDown}`};
-	display: ${(props: MissileState) => props.started ? 'block': 'none'}
+	animation: ${(props: SymbolProps) => props.fallDuration}s ${keyframes`${bounceInDown}`};
+	display: ${(props: SymbolProps) => props.started ? 'block': 'none'}
 `;
-
-type MissileState = {
+type SymbolProps = {
 	started: boolean,
-	reached: boolean
+	reached: boolean,
+	fallDuration: number
 }
-
-type IProps = {
+type IProps = SymbolProps & {
 	position: number
 }
-const Missile: React.FC<IProps> = ({ position }) => {
-	const [started, setStarted] = useState(false);
-	const [reached, setReached] = useState(false);
-
-	function launch() {
-		setStarted(true)
-		setTimeout(() => {
-			setReached(true);
-		}, 1)
-	}
+const Missile: React.FC<IProps> = ({ position, started, reached, fallDuration }) => {
 
 	return (
-		<Symbol style={{ left: position }} started={started} reached={reached}>
+		<Symbol style={{ left: position }} 
+		 	fallDuration={fallDuration} started={started} reached={reached}>
 			<ReactSVG src="missile.svg"/>
 		</Symbol>
 	)
